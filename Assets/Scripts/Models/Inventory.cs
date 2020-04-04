@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Inventory
 {
+    // TODO: Add more items to the shop
     public static Dictionary<string, Item> ShopItems = new Dictionary<string, Item>()
     {
         {"Willy Dog", new Item("Willy Dog", "A quick cheap meal", 5, hungerChange: 5) },
