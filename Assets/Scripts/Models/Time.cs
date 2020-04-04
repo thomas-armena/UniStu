@@ -12,15 +12,20 @@ public enum TimeOfDay
 
 public class Time
 {
-    public int semester;
-    public int dayOfSemester;
-    public TimeOfDay timeOfDay;
+    public int Semester { get; private set; }
+    public int DayOfSemester { get; private set; }
+    public TimeOfDay TimeOfDay { get; private set; }
 
-    public Time()
+    public Time(int semester = 1, int dayOfSemester = 1, TimeOfDay timeOfDay = TimeOfDay.Morning)
     {
-        this.semester = 1;
-        this.dayOfSemester = 1;
-        this.timeOfDay = TimeOfDay.Morning;
+        Semester = semester;
+        DayOfSemester = dayOfSemester;
+        TimeOfDay = timeOfDay;
+    }
+
+    public void IncrementTime()
+    {
+        // TODO: Implement this
     }
 }
 

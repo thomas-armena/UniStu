@@ -11,24 +11,15 @@ public enum CharacterType
 
 public class Stats
 {
-    public CharacterType CharacterType { get; set; }
-    public int Health { get; set; }
-    public int Grade { get; set; }
-    public int Hunger { get; set; }
-    public int Social { get; set; }
-    public int MacCoins { get; set; }
+    public CharacterType CharacterType { get; private set; }
+    public int Health { get; private set; }
+    public int Grade { get; private set; }
+    public int Hunger { get; private set; }
+    public int Social { get; private set; }
+    public int MacCoins { get; private set; }
 
-    public Stats()
-    {
-        CharacterType = CharacterType.PartyAnimal;
-        Health = 50;
-        Grade = 50;
-        Hunger = 50;
-        Social = 50;
-        MacCoins = 0;
-    }
-
-    public Stats(CharacterType characterType, int health, int grade, int hunger, int social, int macCoins)
+    public Stats(CharacterType characterType = CharacterType.PartyAnimal, 
+        int health = 50, int grade = 50, int hunger = 50, int social = 50, int macCoins = 0)
     {
         CharacterType = characterType;
         Health = health;
