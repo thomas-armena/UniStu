@@ -13,8 +13,8 @@ public class CharacterAppearanceController : MonoBehaviour
     {
         SpriteRenderer headSpriteRenderer = this.headObject.GetComponent<SpriteRenderer>();
         SpriteRenderer bodySpriteRenderer = this.bodyObject.GetComponent<SpriteRenderer>();
-        headSpriteRenderer.sprite = this.headSprites[GameData.instance.characterAppearance.bodySprite];
-        bodySpriteRenderer.sprite = this.bodySprites[GameData.instance.characterAppearance.bodySprite];
+        headSpriteRenderer.sprite = this.headSprites[GameData.Instance.CharacterAppearance.bodySprite];
+        bodySpriteRenderer.sprite = this.bodySprites[GameData.Instance.CharacterAppearance.bodySprite];
     }
 
     void Update()

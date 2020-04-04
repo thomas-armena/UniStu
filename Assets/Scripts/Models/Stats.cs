@@ -11,20 +11,39 @@ public enum CharacterType
 
 public class Stats
 {
-    public CharacterType characterType;
-    public int health;
-    public int grade;
-    public int hunger;
-    public int social;
-    public int macCoins;
+    public CharacterType CharacterType { get; set; }
+    public int Health { get; set; }
+    public int Grade { get; set; }
+    public int Hunger { get; set; }
+    public int Social { get; set; }
+    public int MacCoins { get; set; }
 
     public Stats()
     {
-        this.characterType = CharacterType.PartyAnimal;
-        this.health = 50;
-        this.grade = 50;
-        this.hunger = 50;
-        this.social = 50;
-        this.macCoins = 0;
+        CharacterType = CharacterType.PartyAnimal;
+        Health = 50;
+        Grade = 50;
+        Hunger = 50;
+        Social = 50;
+        MacCoins = 0;
+    }
+
+    public Stats(CharacterType characterType, int health, int grade, int hunger, int social, int macCoins)
+    {
+        CharacterType = characterType;
+        Health = health;
+        Grade = grade;
+        Hunger = hunger;
+        Social = social;
+        MacCoins = macCoins;
+    }
+
+    public void ApplyStatChanges(StatChanger statChanger)
+    {
+        Health += statChanger.HealthChange;
+        Grade += statChanger.GradeChange;
+        Hunger += statChanger.HungerChange;
+        Social += statChanger.SocialChange;
+        MacCoins += statChanger.MacCoinsChange;
     }
 }
