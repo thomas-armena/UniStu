@@ -9,11 +9,12 @@ public class CharacterCreationController : MonoBehaviour
 
     public Button doneButton;
     public MainWindowController mainWindowController;
+    public Button cameraButton;
 
-    // Start is called before the first frame update
     void Start()
     {
         doneButton.onClick.AddListener(HandleDoneButtonClick);
+        cameraButton.onClick.AddListener(HandleCameraButtonClick);
     }
 
     void HandleDoneButtonClick()
@@ -21,9 +22,13 @@ public class CharacterCreationController : MonoBehaviour
         mainWindowController.currentView = View.Game;
     }
 
-    // Update is called once per frame
+    void HandleCameraButtonClick()
+    {
+        mainWindowController.currentView = View.Camera;
+    }
+
     void Update()
     {
-        
+
     }
 }
