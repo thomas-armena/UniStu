@@ -10,6 +10,8 @@ public class CharacterCreationController : MonoBehaviour
     public Button doneButton;
     public MainWindowController mainWindowController;
     public Button cameraButton;
+    public Dropdown headDropdown;
+    public Dropdown bodyDropdown;
 
     void Start()
     {
@@ -29,6 +31,8 @@ public class CharacterCreationController : MonoBehaviour
 
     void Update()
     {
+        GameData.Instance.CharacterAppearance.Head = headDropdown.value;
+        GameData.Instance.CharacterAppearance.Body = bodyDropdown.value;
 
     }
 }
