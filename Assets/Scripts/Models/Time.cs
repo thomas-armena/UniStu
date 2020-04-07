@@ -16,7 +16,7 @@ public class Time
     public int DayOfSemester { get; private set; }
     public PortionOfDay TimeOfDay { get; private set; }
 
-    public Time(int semester = 1, int dayOfSemester = 1, PortionOfDay portionOfDay = TimeOfDay.Morning)
+    public Time(int semester = 1, int dayOfSemester = 1, PortionOfDay portionOfDay = PortionOfDay.Morning)
     {
         Semester = semester;
         DayOfSemester = dayOfSemester;
@@ -28,17 +28,17 @@ public class Time
         switch (TimeOfDay)
         {
             case PortionOfDay.Morning:
-                TimeOfDay = TimeOfDay.Noon;
+                TimeOfDay = PortionOfDay.Noon;
                 break;
             case PortionOfDay.Noon:
-                TimeOfDay = TimeOfDay.Evening;
+                TimeOfDay = PortionOfDay.Evening;
                 break;
             case PortionOfDay.Evening:
-                TimeOfDay = TimeOfDay.Night;
+                TimeOfDay = PortionOfDay.Night;
                 break;
             case PortionOfDay.Night:
                 DayOfSemester++;
-                TimeOfDay = TimeOfDay.Morning;
+                TimeOfDay = PortionOfDay.Morning;
                 break;
             default:
                 break;
