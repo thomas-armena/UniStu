@@ -10,6 +10,7 @@ public enum PortionOfDay
     Night
 }
 
+[System.Serializable]
 public class Time
 {
     public int Semester { get; private set; }

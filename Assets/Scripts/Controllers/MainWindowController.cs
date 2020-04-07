@@ -27,6 +27,11 @@ public class MainWindowController : MonoBehaviour
         
     }
 
+    void OnApplicationQuit()
+    {
+        GameData.Instance.saveGameData();
+    }
+
     void Update()
     {
         selectGameView.SetActive(this.currentView == View.SelectGame);

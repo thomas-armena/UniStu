@@ -10,6 +10,7 @@ public enum CharacterType
     CentroConnoisseur
 }
 
+[System.Serializable]
 public class Stats
 {
     public CharacterType CharacterType { get; private set; }
