@@ -18,9 +18,10 @@ public class Stats
     public int Hunger { get; private set; }
     public int Social { get; private set; }
     public int MacCoins { get; private set; }
+    public int SemesterCount { get; }
 
     public Stats(CharacterType characterType = CharacterType.PartyAnimal, 
-        int health = 50, int grade = 50, int hunger = 50, int social = 50, int macCoins = 0)
+        int health = 50, int grade = 50, int hunger = 50, int social = 50, int macCoins = 4000)
     {
         CharacterType = characterType;
         Health = health;
