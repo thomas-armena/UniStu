@@ -39,4 +39,13 @@ public class Stats
         Social += statChanger.SocialChange;
         MacCoins += statChanger.MacCoinsChange;
     }
+
+    public void NewSemester()
+    {
+        Health = 50;
+        Grade = 8;
+        Hunger = 50;
+        Social = 50;
+        MacCoins = 4000;
+    }
 }
