@@ -40,7 +40,7 @@ public class Time
                 break;
             case PortionOfDay.Night:
                 DayOfSemester++;
-                GameData.Instance.CharacterStats.ApplyStatChanges(new Event("Day update", "Day update", healthChange: Random.Range(-4, 2), gradeChange: Random.Range(-1, 1), hungerChange: Random.Range(-4, 2), socialChange: Random.Range(-4, 2), macCoinsChange: -10));
+                GameData.Instance.CharacterStats.ApplyStatChanges(new Event("Day update", "Day update", healthChange: Random.Range(-4, 3), gradeChange: Random.Range(-1, 2), hungerChange: Random.Range(-4, 3), socialChange: Random.Range(-4, 3), macCoinsChange: -10));
                 TimeOfDay = PortionOfDay.Morning;
                 break;
             default:

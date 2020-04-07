@@ -13,34 +13,32 @@ public class TimeController : MonoBehaviour
 
     public Event rent = new Event("Rent", "Rent taken from your account", macCoinsChange: -500);
 
-    // int health = 50, int grade = 8, int hunger = 50, int social = 50, int macCoins = 4000
-
-
     // Start is called before the first frame update
     void Start()
     {
         timeNumber = 1;
 
-        semesterText.text = "Semester: "+GameData.Instance.CurrentTime.Semester.ToString();
-        daysText.text = "Day of Semesterr: "+GameData.Instance.CurrentTime.DayOfSemester.ToString();
-        partOfDayText.text = "Time Of Day: "+GameData.Instance.CurrentTime.TimeOfDay.ToString();
+        semesterText.text = "Semester: " + GameData.Instance.CurrentTime.Semester.ToString();
+        daysText.text = "Day of Semesterr: " + GameData.Instance.CurrentTime.DayOfSemester.ToString();
+        partOfDayText.text = "Time Of Day: " + GameData.Instance.CurrentTime.TimeOfDay.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        semesterText.text = "Semester: "+GameData.Instance.CurrentTime.Semester.ToString();
-        daysText.text = "Day of Semesterr: "+GameData.Instance.CurrentTime.DayOfSemester.ToString();
-        partOfDayText.text = "Time Of Day: "+GameData.Instance.CurrentTime.TimeOfDay.ToString();
-
         timeNumber -= UnityEngine.Time.deltaTime;
-        System.Console.WriteLine((int)System.Math.Round(timeNumber));
+
+        if (GameData.Instance.CharacterStats.Health < 0 ||
+        GameData.Instance.CharacterStats.Hunger < 0 ||
+        GameData.Instance.CharacterStats.Social < 0)
+        {
+            // Fail game function here!
+            Debug.Log("Stats dropped to low, game failed");
+        }
 
         if ((int)System.Math.Round(timeNumber) == 0)
         {
             GameData.Instance.CurrentTime.IncrementTime();
-            timeNumber = 1;
             
             if (GameData.Instance.CurrentTime.TimeOfDay == PortionOfDay.Morning)
             {
@@ -53,6 +51,8 @@ public class TimeController : MonoBehaviour
                     RandomEventsController.randomEventOccur();
                 }
             }
+
+            timeNumber = 1;
         }
 
         if (GameData.Instance.CurrentTime.DayOfSemester == 21)
@@ -62,19 +62,24 @@ public class TimeController : MonoBehaviour
 
             if (gpa < 4)
             {
+                // Need function here for Game Over
                 Debug.Log("Failed Game!!");
             } else if (gpa >= 4 && semesterCount < 8)
             {
-                Debug.Log("Semester Passed!");
+                Debug.Log("Semester Passed! Starting a new semester!");
                 GameData.Instance.CurrentTime.NewSemester();
                 GameData.Instance.CharacterStats.NewSemester();
 
             } else if (gpa >= 4 && semesterCount == 8)
             {
-                
+                // Need a function here for Game Passed
                 Debug.Log("Game Passed");
             }
         }
+
+        semesterText.text = "Semester: " + GameData.Instance.CurrentTime.Semester.ToString();
+        daysText.text = "Day of Semesterr: " + GameData.Instance.CurrentTime.DayOfSemester.ToString();
+        partOfDayText.text = "Time Of Day: " + GameData.Instance.CurrentTime.TimeOfDay.ToString();
 
     }
 }
