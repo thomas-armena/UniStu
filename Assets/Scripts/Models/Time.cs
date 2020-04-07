@@ -26,6 +26,7 @@ public class Time
 
     public void IncrementTime()
     {
+
         switch (TimeOfDay)
         {
             case PortionOfDay.Morning:
@@ -39,11 +40,18 @@ public class Time
                 break;
             case PortionOfDay.Night:
                 DayOfSemester++;
+                GameData.Instance.CharacterStats.ApplyStatChanges(new Event("Day update", "Day update", healthChange: Random.Range(-4, 2), gradeChange: Random.Range(-1, 1), hungerChange: Random.Range(-4, 2), socialChange: Random.Range(-4, 2), macCoinsChange: -10));
                 TimeOfDay = PortionOfDay.Morning;
                 break;
             default:
                 break;
         }
+    }
 
+    public void NewSemester()
+    {
+        Semester++;
+        DayOfSemester = 1;
+        TimeOfDay = PortionOfDay.Morning;
     }
 }
