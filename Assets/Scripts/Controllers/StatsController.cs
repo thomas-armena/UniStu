@@ -12,7 +12,6 @@ public class StatsController : MonoBehaviour
     public Text socialText;
     public Text macCoinsText;
 
-
     void Start()
     {
         healthText.text = "Health: "+GameData.Instance.CharacterStats.Health.ToString();
