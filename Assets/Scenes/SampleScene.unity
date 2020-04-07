@@ -2579,10 +2579,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941787dee0c13474ba7c4e073560c793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoneButton: {fileID: 0}
-  Upload: {fileID: 0}
-  Explorer: {fileID: 0}
-  PictureDirectory: {fileID: 0}
+  DoneButton: {fileID: 1614015200}
+  Upload: {fileID: 393019245}
+  Explorer: {fileID: 1890100751}
+  PictureDirectory: {fileID: 988492311}
   mainWindowController: {fileID: 0}
   Directory: 
 --- !u!1 &508475819
@@ -5878,6 +5878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663814959}
   - component: {fileID: 1663814960}
+  - component: {fileID: 1663814961}
   m_Layer: 0
   m_Name: GameView
   m_TagString: Untagged
@@ -5916,6 +5917,18 @@ MonoBehaviour:
   shopButton: {fileID: 2096319500}
   appearanceButton: {fileID: 461408367}
   mainWindowController: {fileID: 1263124886}
+--- !u!114 &1663814961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663814958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a744f77452867e458dfac38fca03d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1671709351
 GameObject:
   m_ObjectHideFlags: 0
