@@ -39,13 +39,16 @@ public class TimeController : MonoBehaviour
             GameData.Instance.CurrentTime.IncrementTime();
             timeNumber = 10;
             
-            if (GameData.Instance.CurrentTime.DayOfSemester == 4 || 
-            GameData.Instance.CurrentTime.DayOfSemester == 8 || 
-            GameData.Instance.CurrentTime.DayOfSemester == 12 || 
-            GameData.Instance.CurrentTime.DayOfSemester == 16)
+            if (GameData.Instance.CurrentTime.TimeOfDay == PortionOfDay.Morning)
             {
-                GameData.Instance.CharacterStats.ApplyStatChanges(rent);
-                RandomEventsController.randomEventOccur();
+                if (GameData.Instance.CurrentTime.DayOfSemester == 4 || 
+                GameData.Instance.CurrentTime.DayOfSemester == 8 || 
+                GameData.Instance.CurrentTime.DayOfSemester == 12 || 
+                GameData.Instance.CurrentTime.DayOfSemester == 16)
+                {
+                    GameData.Instance.CharacterStats.ApplyStatChanges(rent);
+                    RandomEventsController.randomEventOccur();
+                }
             }
         }
 
