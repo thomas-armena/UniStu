@@ -7,13 +7,19 @@ using UnityEngine.UI;
 public class CameraController : MonoBehaviour
 {
 
-    public Button doneButton;
+    public Button DoneButton;
+    public Button Upload;
+    public Button Explorer;
+    public InputField PictureDirectory;
     public MainWindowController mainWindowController;
-
+    public string Directory;
 
     void Start()
     {
-        doneButton.onClick.AddListener(HandleDoneButtonClick);
+        Upload.onClick.AddListener(HandleUploadClick);
+        DoneButton.onClick.AddListener(HandleDoneButtonClick);
+        Explorer.onClick.AddListener(HandleExplorerClick);
+        PictureDirectory.onValueChanged.AddListener(HandleUploadDirectory);
     }
 
     void Update()
@@ -23,6 +29,21 @@ public class CameraController : MonoBehaviour
 
     void HandleDoneButtonClick()
     {
-        mainWindowController.currentView = View.CharacterCreation;
+        mainWindowController.currentView = View.Game;
+    }
+
+    void HandleExplorerClick()
+    {
+        System.Diagnostics.Process.Start("explorer.exe");
+    }
+
+    void HandleUploadClick()
+    {
+        print(Directory);
+    }
+
+    void HandleUploadDirectory(string arg0)
+    {
+        Directory = arg0;
     }
 }

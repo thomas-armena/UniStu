@@ -24,7 +24,12 @@ public class SelectGameController : MonoBehaviour
 
     void HandleLoadButtonClick()
     {
-        mainWindowController.currentView = View.Game;
+        bool result = GameData.Instance.loadGameData();
+        // Only Continue to the Game screen if there was something to load.
+        if (result)
+        {
+            mainWindowController.currentView = View.Game;
+        }
     }
 
     // Update is called once per frame

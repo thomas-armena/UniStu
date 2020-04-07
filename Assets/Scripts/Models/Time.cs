@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TimeOfDay
+public enum PortionOfDay
 {
     Morning,
     Noon,
@@ -10,22 +10,40 @@ public enum TimeOfDay
     Night
 }
 
+[System.Serializable]
 public class Time
 {
     public int Semester { get; private set; }
     public int DayOfSemester { get; private set; }
-    public TimeOfDay TimeOfDay { get; private set; }
+    public PortionOfDay TimeOfDay { get; private set; }
 
-    public Time(int semester = 1, int dayOfSemester = 1, TimeOfDay timeOfDay = TimeOfDay.Morning)
+    public Time(int semester = 1, int dayOfSemester = 1, PortionOfDay portionOfDay = PortionOfDay.Morning)
     {
         Semester = semester;
         DayOfSemester = dayOfSemester;
-        TimeOfDay = timeOfDay;
+        TimeOfDay = portionOfDay;
     }
 
     public void IncrementTime()
     {
-        // TODO: Implement this
+        switch (TimeOfDay)
+        {
+            case PortionOfDay.Morning:
+                TimeOfDay = PortionOfDay.Noon;
+                break;
+            case PortionOfDay.Noon:
+                TimeOfDay = PortionOfDay.Evening;
+                break;
+            case PortionOfDay.Evening:
+                TimeOfDay = PortionOfDay.Night;
+                break;
+            case PortionOfDay.Night:
+                DayOfSemester++;
+                TimeOfDay = PortionOfDay.Morning;
+                break;
+            default:
+                break;
+        }
+
     }
 }
-
