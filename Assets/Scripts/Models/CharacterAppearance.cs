@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CharacterAppearance
 {
-    public int headSprite;
-    public int bodySprite;
+    public int Head { get; set; }
+    public int Body { get; set; }
 
-    public CharacterAppearance()
+    public CharacterAppearance(int head=0, int body=0)
     {
-        headSprite = 1;
-        bodySprite = 1;
+        Head = head;
+        Body = body;
     }
 
 }

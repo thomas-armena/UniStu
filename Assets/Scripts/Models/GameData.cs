@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class GameData
 { 
-    public static GameData instance = new GameData();
-    public CharacterAppearance characterAppearance;
-    public Stats stats;
-    public Time time;
+    public static GameData Instance = new GameData();
+    public CharacterAppearance CharacterAppearance { get; set; }
+    public Stats CharacterStats { get; set; }
+    public Time CurrentTime { get; set; }
 
     private GameData()
     {
-        characterAppearance = new CharacterAppearance();
-        stats = new Stats();
-        time = new Time();
+        CharacterAppearance = new CharacterAppearance();
+        CharacterStats = new Stats();
+        CurrentTime = new Time();
     }
 
 }

@@ -12,77 +12,30 @@ public enum CharacterType
 
 public class Stats
 {
-    public CharacterType characterType;
-    public int health;
-    public int grade;
-    public int hunger;
-    public int social;
-    public int macCoins;
-    public int semesterCount;
+    public CharacterType CharacterType { get; private set; }
+    public int Health { get; private set; }
+    public int Grade { get; private set; }
+    public int Hunger { get; private set; }
+    public int Social { get; private set; }
+    public int MacCoins { get; private set; }
 
-    public Stats()
+    public Stats(CharacterType characterType = CharacterType.PartyAnimal, 
+        int health = 50, int grade = 50, int hunger = 50, int social = 50, int macCoins = 0)
     {
-        this.characterType = CharacterType.PartyAnimal;
-        this.health = 50;
-        this.grade = 50;
-        this.hunger = 50;
-        this.social = 50;
-        this.macCoins = 0;
-        this.semesterCount = 0;
+        CharacterType = characterType;
+        Health = health;
+        Grade = grade;
+        Hunger = hunger;
+        Social = social;
+        MacCoins = macCoins;
     }
 
-    public void setCharacterType(string type)
+    public void ApplyStatChanges(StatChanger statChanger)
     {
-        //this.characterType = CharacterType.
-    }
-
-    public void setHealth(int health)
-    {
-        this.health = health;
-    }
-
-    public void setGrade(int grade)
-    {
-        this.grade = grade;
-    }
-
-    public void setHunger(int hunger)
-    {
-        this.hunger = hunger;
-    }
-
-    public void setSocial(int social)
-    {
-        this.social = social;
-    }
-
-    public void getDisplayInfo()
-    {
-        // return
-    } 
-
-    public void subtractMacCoins(int amount)
-    {
-        this.macCoins -= amount;
-    }
-
-    public void addMacCoints(int amount)
-    {
-        this.macCoins += amount;
-    }
-
-    public int getMacCoins()
-    {
-        return this.macCoins;
-    }
-
-    public int getSemesterCount()
-    {
-        return this.semesterCount;
-    }
-    
-    public void incrementSemesterCount()
-    {
-        this.semesterCount += 1;
+        Health += statChanger.HealthChange;
+        Grade += statChanger.GradeChange;
+        Hunger += statChanger.HungerChange;
+        Social += statChanger.SocialChange;
+        MacCoins += statChanger.MacCoinsChange;
     }
 }
