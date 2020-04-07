@@ -24,6 +24,10 @@ public class StatsController : MonoBehaviour
 
     void Update()
     {
-        
+        healthText.text = "Health: "+GameData.Instance.CharacterStats.Health.ToString();
+        gradeText.text = "Grade: "+GameData.Instance.CharacterStats.Grade.ToString();
+        hungerText.text = "Hunger: "+GameData.Instance.CharacterStats.Hunger.ToString();
+        socialText.text = "Social: "+GameData.Instance.CharacterStats.Social.ToString();
+        macCoinsText.text = "Mac Coins: "+GameData.Instance.CharacterStats.MacCoins.ToString();
     }
 }

@@ -20,7 +20,7 @@ public class Stats
     public int MacCoins { get; private set; }
 
     public Stats(CharacterType characterType = CharacterType.PartyAnimal, 
-        int health = 50, int grade = 50, int hunger = 50, int social = 50, int macCoins = 4000)
+        int health = 50, int grade = 8, int hunger = 50, int social = 50, int macCoins = 4000)
     {
         CharacterType = characterType;
         Health = health;

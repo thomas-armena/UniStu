@@ -5,8 +5,8 @@ using UnityEngine;
 public class RandomEventsController : MonoBehaviour
 {
 
-    RandomEvents randomEventsList;
-    Event[] events;
+    public RandomEvents randomEventsList;
+    public static Event[] events;
     // Random rnd = new Random();
 
     // Start is called before the first frame update
@@ -22,13 +22,12 @@ public class RandomEventsController : MonoBehaviour
         
     }
 
-    public Event chooseRandomEvent()
+    public static void randomEventOccur()
     {
-        return events[Random.Range(0, 11)];
-    }
+        Event eventToOccur = events[Random.Range(0, 11)];
+        GameData.Instance.CharacterStats.ApplyStatChanges(eventToOccur);
 
-    public void randomEventOccur(Event eventToOccur)
-    {
-        
+        // Write to console for now, should be sending to output messege
+        Debug.Log(eventToOccur.Name + "\n" + eventToOccur.Description);
     }
 }
