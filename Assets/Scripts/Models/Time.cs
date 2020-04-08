@@ -40,7 +40,19 @@ public class Time
                 break;
             case PortionOfDay.Night:
                 DayOfSemester++;
-                GameData.Instance.CharacterStats.ApplyStatChanges(new Event("Day update", "Day update", healthChange: Random.Range(-4, 3), gradeChange: Random.Range(-1, 2), hungerChange: Random.Range(-4, 3), socialChange: Random.Range(-4, 3), macCoinsChange: -10));
+                if (GameData.Instance.CharacterStats.CharacterType == CharacterType.PartyAnimal)
+                {
+                    GameData.Instance.CharacterStats.ApplyStatChanges(new Event("Day update", "Day update", healthChange: Random.Range(-4, 3), gradeChange: Random.Range(-1, 2), hungerChange: Random.Range(-4, 3), socialChange: Random.Range(-2, 3), macCoinsChange: -10));
+                } else if (GameData.Instance.CharacterStats.CharacterType == CharacterType.GymRat)
+                {
+                    GameData.Instance.CharacterStats.ApplyStatChanges(new Event("Day update", "Day update", healthChange: Random.Range(-2, 3), gradeChange: Random.Range(-1, 2), hungerChange: Random.Range(-4, 3), socialChange: Random.Range(-4, 3), macCoinsChange: -10));
+                } else if (GameData.Instance.CharacterStats.CharacterType == CharacterType.Bookworm)
+                {
+                    GameData.Instance.CharacterStats.ApplyStatChanges(new Event("Day update", "Day update", healthChange: Random.Range(-4, 3), gradeChange: Random.Range(-1, 2), hungerChange: Random.Range(-4, 3), socialChange: Random.Range(-4, 3), macCoinsChange: -10));
+                } else if (GameData.Instance.CharacterStats.CharacterType == CharacterType.CentroConnoisseur)
+                {
+                    GameData.Instance.CharacterStats.ApplyStatChanges(new Event("Day update", "Day update", healthChange: Random.Range(-4, 3), gradeChange: Random.Range(-1, 2), hungerChange: Random.Range(-2, 3), socialChange: Random.Range(-4, 3), macCoinsChange: -10));
+                }
                 TimeOfDay = PortionOfDay.Morning;
                 break;
             default:
