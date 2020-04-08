@@ -80,6 +80,8 @@ public class TimeController : MonoBehaviour
             {
                 // Need a function here for Game Passed
                 mainWindowController.currentView = View.GameOver;
+                Debug.Log("asdfasdfasdfasdfasdfasdf");
+
             }
         }
 

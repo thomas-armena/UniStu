@@ -27,8 +27,8 @@ public class RandomEventsController : MonoBehaviour
     public void randomEventOccur()
     {
         Event eventToOccur = events[Random.Range(0, 11)];
-        GameData.Instance.CharacterStats.ApplyStatChanges(eventToOccur);
-        outputMessageController.message = eventToOccur.Name + "\n" + eventToOccur.Description;
+        string updateString = GameData.Instance.CharacterStats.ApplyStatChanges(eventToOccur);
+        outputMessageController.message = eventToOccur.Name + "\n" + eventToOccur.Description + "\n" + updateString;
         // Write to console for now, should be sending to output messege
         Debug.Log(eventToOccur.Name + "\n" + eventToOccur.Description);
     }

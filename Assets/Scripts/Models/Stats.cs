@@ -31,13 +31,23 @@ public class Stats
         MacCoins = macCoins;
     }
 
-    public void ApplyStatChanges(StatChanger statChanger)
+    public string ApplyStatChanges(StatChanger statChanger)
     {
         Health = Mathf.Clamp(Health+statChanger.HealthChange, -999999, 100);
-        Grade = Mathf.Clamp(Health + statChanger.GradeChange, -999999, 12);
-        Hunger = Mathf.Clamp(Health + statChanger.HungerChange, -999999, 100);
-        Social = Mathf.Clamp(Health + statChanger.SocialChange, -999999, 100);
-        MacCoins = Mathf.Clamp(Health + statChanger.MacCoinsChange, -999999, 9999999);
+        Grade = Mathf.Clamp(Grade + statChanger.GradeChange, -999999, 12);
+        Hunger = Mathf.Clamp(Hunger + statChanger.HungerChange, -999999, 100);
+        Social = Mathf.Clamp(Social + statChanger.SocialChange, -999999, 100);
+        MacCoins = Mathf.Clamp(MacCoins + statChanger.MacCoinsChange, -999999, 9999999);
+
+        string update = "Stat Changes: \n";
+        if (statChanger.HealthChange != 0) update += "Health change: " + statChanger.HealthChange + "\n";
+        if (statChanger.GradeChange != 0) update += "Grade change: " + statChanger.GradeChange + "\n";
+        if (statChanger.HungerChange != 0) update += "Hunger change: " + statChanger.HungerChange + "\n";
+        if (statChanger.SocialChange != 0) update += "Social change: " + statChanger.SocialChange + "\n";
+        if (statChanger.MacCoinsChange != 0) update += "MacCoins change: " + statChanger.MacCoinsChange + "\n";
+        return update;
+
+
     }
 
     public void NewSemester()

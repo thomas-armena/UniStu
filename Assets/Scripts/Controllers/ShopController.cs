@@ -29,8 +29,12 @@ public class ShopController : MonoBehaviour
         if (dropdown.value > 0)
         {
             Item boughtItem = Inventory.ShopItems[dropdown.value - 1];
-            GameData.Instance.CharacterStats.ApplyStatChanges(boughtItem);
-            outputMessageController.message = "Bought item: " + boughtItem.Name + "\n" + boughtItem.Description;
+            if (GameData.Instance.CharacterStats.MacCoins > boughtItem.Price)
+            {
+                string updateString = GameData.Instance.CharacterStats.ApplyStatChanges(boughtItem);
+                outputMessageController.message = "Bought item: " + boughtItem.Name + "\n" + boughtItem.Description + "\n" + updateString;
+            }
+
         }
 
         dropdown.value = 0;
