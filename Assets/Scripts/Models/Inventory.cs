@@ -18,6 +18,7 @@ public class Inventory
         new Item("Airpods", "Don't let people think you're broke", 20, socialChange: 20),
 
         new Item("Textbook", "People still buy textbooks?", 7, gradeChange: 1, socialChange:-3),
+        new Item("Game Failer", "For demo purposes", 5, gradeChange: -5, socialChange: -60)
       
     };
 }
