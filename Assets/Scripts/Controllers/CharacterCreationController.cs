@@ -12,6 +12,7 @@ public class CharacterCreationController : MonoBehaviour
     public Button cameraButton;
     public Dropdown headDropdown;
     public Dropdown bodyDropdown;
+    public Dropdown characterTypeDropdown;
 
     void Start()
     {
@@ -33,6 +34,6 @@ public class CharacterCreationController : MonoBehaviour
     {
         GameData.Instance.CharacterAppearance.Head = headDropdown.value;
         GameData.Instance.CharacterAppearance.Body = bodyDropdown.value;
-
+        GameData.Instance.CharacterStats.CharacterType = (CharacterType)characterTypeDropdown.value;
     }
 }

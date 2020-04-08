@@ -11,6 +11,7 @@ public class StatsController : MonoBehaviour
     public Text hungerText;
     public Text socialText;
     public Text macCoinsText;
+    public Text characterTypeText;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class StatsController : MonoBehaviour
         hungerText.text = "Hunger: "+GameData.Instance.CharacterStats.Hunger.ToString();
         socialText.text = "Social: "+GameData.Instance.CharacterStats.Social.ToString();
         macCoinsText.text = "Mac Coins: "+GameData.Instance.CharacterStats.MacCoins.ToString();
+        characterTypeText.text = "Character Type: " + getCharTypeName(GameData.Instance.CharacterStats.CharacterType);
     }
 
     void Update()
@@ -28,5 +30,23 @@ public class StatsController : MonoBehaviour
         hungerText.text = "Hunger: "+GameData.Instance.CharacterStats.Hunger.ToString();
         socialText.text = "Social: "+GameData.Instance.CharacterStats.Social.ToString();
         macCoinsText.text = "Mac Coins: "+GameData.Instance.CharacterStats.MacCoins.ToString();
+        characterTypeText.text = "Character Type: " + getCharTypeName(GameData.Instance.CharacterStats.CharacterType);
+    }
+
+    string getCharTypeName(CharacterType characterType)
+    {
+        switch (characterType)
+        {
+            case CharacterType.PartyAnimal:
+                return "Party Animal";
+            case CharacterType.GymRat:
+                return "Gym Rat";
+            case CharacterType.Bookworm:
+                return "Book Worm";
+            case CharacterType.CentroConnoisseur:
+                return "Centro Connoisseur";
+            default:
+                return "Party Animal";
+        }
     }
 }

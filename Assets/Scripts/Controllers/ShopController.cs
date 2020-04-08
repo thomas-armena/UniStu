@@ -32,7 +32,7 @@ public class ShopController : MonoBehaviour
             if (GameData.Instance.CharacterStats.MacCoins > boughtItem.Price)
             {
                 string updateString = GameData.Instance.CharacterStats.ApplyStatChanges(boughtItem);
-                outputMessageController.message = "Bought item: " + boughtItem.Name + "\n" + boughtItem.Description + "\n" + updateString;
+                outputMessageController.message = "Bought item: " + boughtItem.Name + "\n" + boughtItem.Description + "\n\n" + updateString;
             }
 
         }

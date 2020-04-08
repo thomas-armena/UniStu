@@ -13,7 +13,7 @@ public enum CharacterType
 [System.Serializable]
 public class Stats
 {
-    public CharacterType CharacterType { get; private set; }
+    public CharacterType CharacterType { get; set; }
     public int Health { get; private set; }
     public int Grade { get; private set; }
     public int Hunger { get; private set; }
