@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class GameController : MonoBehaviour
+public class GameOverController : MonoBehaviour
 {
 
-    public Button appearanceButton;
+    public Button restartButton;
     public MainWindowController mainWindowController;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        appearanceButton.onClick.AddListener(HandleAppearanceButtonClick);
+        restartButton.onClick.AddListener(HandleRestartButtonClick);
     }
 
-    void HandleAppearanceButtonClick()
+    void HandleRestartButtonClick()
     {
+        GameData.Instance.resetGame();
         mainWindowController.currentView = View.CharacterCreation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        System.Console.WriteLine("TEst");
+        
     }
 }

@@ -7,6 +7,7 @@ public class CharacterAppearance
 {
     public int Head { get; set; }
     public int Body { get; set; }
+    public string Url { get; set; }
 
     public CharacterAppearance(int head=0, int body=0)
     {

@@ -8,11 +8,13 @@ public class CharacterAppearanceController : MonoBehaviour
     public GameObject bodyObject;
     public Sprite[] headSprites;
     public Sprite[] bodySprites;
+    public Sprite uploadedHead;
 
     void Start()
     {
-
+        uploadedHead = Resources.Load<Sprite>(GameData.Instance.CharacterAppearance.Url);
     }
+
 
     void Update()
     {

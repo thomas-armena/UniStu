@@ -39,7 +39,7 @@ public class CameraController : MonoBehaviour
 
     void HandleUploadClick()
     {
-        print(Directory);
+        GameData.Instance.CharacterAppearance.Url = Directory;
     }
 
     void HandleUploadDirectory(string arg0)

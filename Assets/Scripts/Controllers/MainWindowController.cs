@@ -8,7 +8,8 @@ public enum View
     Game,
     Shop,
     CharacterCreation,
-    Camera
+    Camera,
+    GameOver
 }
 
 public class MainWindowController : MonoBehaviour
@@ -19,6 +20,7 @@ public class MainWindowController : MonoBehaviour
     public GameObject shopView;
     public GameObject characterCreationView;
     public GameObject cameraView;
+    public GameObject gameOverView;
 
     public View currentView;
 
@@ -39,5 +41,6 @@ public class MainWindowController : MonoBehaviour
         shopView.SetActive(this.currentView == View.Shop);
         characterCreationView.SetActive(this.currentView == View.CharacterCreation);
         cameraView.SetActive(this.currentView == View.Camera);
+        gameOverView.SetActive(this.currentView == View.GameOver);
     }
 }
