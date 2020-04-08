@@ -33,11 +33,11 @@ public class Stats
 
     public void ApplyStatChanges(StatChanger statChanger)
     {
-        Health += statChanger.HealthChange;
-        Grade += statChanger.GradeChange;
-        Hunger += statChanger.HungerChange;
-        Social += statChanger.SocialChange;
-        MacCoins += statChanger.MacCoinsChange;
+        Health = Mathf.Clamp(Health+statChanger.HealthChange, -999999, 100);
+        Grade = Mathf.Clamp(Health + statChanger.GradeChange, -999999, 12);
+        Hunger = Mathf.Clamp(Health + statChanger.HungerChange, -999999, 100);
+        Social = Mathf.Clamp(Health + statChanger.SocialChange, -999999, 100);
+        MacCoins = Mathf.Clamp(Health + statChanger.MacCoinsChange, -999999, 9999999);
     }
 
     public void NewSemester()

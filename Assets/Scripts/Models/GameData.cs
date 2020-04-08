@@ -77,4 +77,11 @@ public class GameData
         }
     }
 
+    public void resetGame()
+    {
+        CharacterAppearance = new CharacterAppearance();
+        CharacterStats = new Stats();
+        CurrentTime = new Time();
+    }
+
 }

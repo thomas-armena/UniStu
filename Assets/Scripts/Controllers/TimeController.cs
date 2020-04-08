@@ -12,11 +12,16 @@ public class TimeController : MonoBehaviour
     public Text partOfDayText;
 
     public Event rent = new Event("Rent", "Rent taken from your account", macCoinsChange: -500);
+    public RandomEventsController randomEventsController;
+    public MainWindowController mainWindowController;
+    public OutputMessageController outputMessageController;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        timeNumber = 1;
+        timeNumber = 0.2f;
 
         semesterText.text = "Semester: " + GameData.Instance.CurrentTime.Semester.ToString();
         daysText.text = "Day of Semesterr: " + GameData.Instance.CurrentTime.DayOfSemester.ToString();
@@ -33,7 +38,7 @@ public class TimeController : MonoBehaviour
         GameData.Instance.CharacterStats.Social < 0)
         {
             // Fail game function here!
-            Debug.Log("Stats dropped to low, game failed");
+            mainWindowController.currentView = View.GameOver;
         }
 
         if ((int)System.Math.Round(timeNumber) == 0)
@@ -48,7 +53,7 @@ public class TimeController : MonoBehaviour
                 GameData.Instance.CurrentTime.DayOfSemester == 16)
                 {
                     GameData.Instance.CharacterStats.ApplyStatChanges(rent);
-                    RandomEventsController.randomEventOccur();
+                    randomEventsController.randomEventOccur();
                 }
             }
 
@@ -63,17 +68,18 @@ public class TimeController : MonoBehaviour
             if (gpa < 4)
             {
                 // Need function here for Game Over
-                Debug.Log("Failed Game!!");
+                mainWindowController.currentView = View.GameOver;
             } else if (gpa >= 4 && semesterCount < 8)
             {
                 Debug.Log("Semester Passed! Starting a new semester!");
                 GameData.Instance.CurrentTime.NewSemester();
                 GameData.Instance.CharacterStats.NewSemester();
+                outputMessageController.message = "Semester Passed! Starting a new semester!";
 
-            } else if (gpa >= 4 && semesterCount == 8)
+            } else if (gpa >= 4 && semesterCount == 2)
             {
                 // Need a function here for Game Passed
-                Debug.Log("Game Passed");
+                mainWindowController.currentView = View.GameOver;
             }
         }
 

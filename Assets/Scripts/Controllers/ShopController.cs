@@ -6,19 +6,38 @@ using UnityEngine.UI;
 public class ShopController : MonoBehaviour
 {
 
-    public Button closeButton;
-    public MainWindowController mainWindowController;
+    public Dropdown dropdown;
+    public OutputMessageController outputMessageController;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        closeButton.onClick.AddListener(HandleCloseButtonClick);
+        dropdown = GetComponent<Dropdown>();
+        dropdown.onValueChanged.AddListener(delegate {
+            HandleDropDownChange(dropdown);
+        });
+
+        foreach (Item item in Inventory.ShopItems)
+        {
+            dropdown.options.Add(new Dropdown.OptionData() { text = item.Name + " $"+item.Price });
+        }
     }
 
-    void HandleCloseButtonClick()
+    void HandleDropDownChange(Dropdown change)
     {
-        mainWindowController.currentView = View.Game;
+        if (dropdown.value > 0)
+        {
+            Item boughtItem = Inventory.ShopItems[dropdown.value - 1];
+            GameData.Instance.CharacterStats.ApplyStatChanges(boughtItem);
+            outputMessageController.message = "Bought item: " + boughtItem.Name + "\n" + boughtItem.Description;
+        }
+
+        dropdown.value = 0;
+
     }
+
+
 
     // Update is called once per frame
     void Update()
